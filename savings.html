@@ -1,0 +1,257 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="modern-savings-page">
+
+    <!-- HEADER -->
+
+    <div class="top-banner">
+
+        <div>
+            <h1>💰 Savings Cluster Analysis</h1>
+            <p>AI-powered financial performance dashboard</p>
+        </div>
+
+        <div class="live-status">
+
+            <span class="pulse"></span>
+
+            Live Analysis
+
+        </div>
+
+    </div>
+
+    <!-- MAIN GRID -->
+
+    <div class="savings-grid">
+
+        <!-- TOTAL SAVINGS -->
+
+        <div class="modern-card savings-card-modern">
+
+            <div class="card-glow"></div>
+
+            <div class="card-icon">💵</div>
+
+            <h3>Total Savings</h3>
+
+            <h1>₹ {{ savings }}</h1>
+
+            <div class="mini-tag">
+
+                Monthly Savings
+
+            </div>
+
+        </div>
+
+        <!-- CLUSTER -->
+
+        <div class="modern-card cluster-card-modern">
+
+            <div class="card-glow"></div>
+
+            <div class="card-icon">🧠</div>
+
+            <h3>Cluster Group</h3>
+
+            <h1>{{ group }}</h1>
+
+            <div class="mini-tag">
+
+                ML Classification
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVE STATUS -->
+
+    <div class="interactive-section">
+
+        <div class="status-panel">
+
+            <h2>Financial Performance</h2>
+
+            <p>
+
+                Your savings behavior has been analyzed using machine learning.
+
+            </p>
+
+            <!-- CIRCLE -->
+
+            <div class="interactive-circle">
+
+                <svg>
+
+                    <circle cx="90" cy="90" r="75"></circle>
+
+                    <circle cx="90" cy="90" r="75" id="progressCircle"></circle>
+
+                </svg>
+
+                <div class="circle-text">
+
+                    <h1 id="scoreText">0%</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STATUS RIGHT -->
+
+        <div class="status-right">
+
+            <div class="glass-card">
+
+                <h2>⚡ Current Status</h2>
+
+                <div class="status-badge {{ group.replace(' ','-').lower() }}">
+
+                    {{ group }}
+
+                </div>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h2>📊 Savings Level</h2>
+
+                <div class="progress-wrapper">
+
+                    <div class="progress-line" id="progressLine"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FLOATING INFO -->
+
+    <div class="floating-boxes">
+
+        <div class="float-card">
+
+            <h3>💹 Growth</h3>
+
+            <h1>+24%</h1>
+
+        </div>
+
+        <div class="float-card">
+
+            <h3>🔥 Performance</h3>
+
+            <h1>Stable</h1>
+
+        </div>
+
+        <div class="float-card">
+
+            <h3>🎯 Financial Score</h3>
+
+            <h1 id="financialScore">0</h1>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+    let savings = {{ savings }};
+
+    let score = 0;
+
+    // SCORE LOGIC
+
+    if(savings < 5000){
+
+        score = 30;
+
+    }
+    else if(savings < 15000){
+
+        score = 65;
+
+    }
+    else{
+
+        score = 95;
+
+    }
+
+    // CIRCLE ANIMATION
+
+    const circle = document.getElementById("progressCircle");
+
+    const scoreText = document.getElementById("scoreText");
+
+    const financialScore = document.getElementById("financialScore");
+
+    const radius = 75;
+
+    const circumference = 2 * Math.PI * radius;
+
+    circle.style.strokeDasharray = circumference;
+
+    circle.style.strokeDashoffset = circumference;
+
+    function setProgress(percent){
+
+        const offset = circumference - (percent / 100) * circumference;
+
+        circle.style.strokeDashoffset = offset;
+
+    }
+
+    let count = 0;
+
+    const interval = setInterval(() => {
+
+        if(count >= score){
+
+            clearInterval(interval);
+
+        }
+        else{
+
+            count++;
+
+            scoreText.innerHTML = count + "%";
+
+            financialScore.innerHTML = count;
+
+            setProgress(count);
+
+        }
+
+    }, 20);
+
+    // LINE PROGRESS
+
+    const progressLine = document.getElementById("progressLine");
+
+    setTimeout(() => {
+
+        progressLine.style.width = score + "%";
+
+    }, 500);
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,833 @@
+/* ===================================
+   GOOGLE FONT
+=================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===================================
+   GLOBAL STYLES
+=================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===================================
+   SCROLLBAR
+=================================== */
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#6c63ff;
+    border-radius:10px;
+}
+
+/* ===================================
+   AUTH PAGES
+=================================== */
+.auth-body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#111827,#1e293b);
+    padding:20px;
+}
+
+.auth-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.auth-card{
+    width:400px;
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+    animation:fadeIn 1s ease;
+}
+
+.auth-card h1{
+    text-align:center;
+    margin-bottom:10px;
+    font-size:32px;
+}
+
+.auth-card p{
+    text-align:center;
+    margin-bottom:25px;
+    color:#cbd5e1;
+}
+
+.auth-card input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    background:#334155;
+    color:#fff;
+}
+
+.auth-card input::placeholder{
+    color:#cbd5e1;
+}
+
+.auth-card button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#6c63ff;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.auth-card button:hover{
+    background:#574bff;
+    transform:translateY(-3px);
+}
+
+.auth-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.auth-link a{
+    color:#60a5fa;
+    text-decoration:none;
+}
+
+.auth-link a:hover{
+    text-decoration:underline;
+}
+
+/* ===================================
+   MAIN LAYOUT
+=================================== */
+.main-container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===================================
+   SIDEBAR
+=================================== */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#111827;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:30px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    animation:slideIn 1s ease;
+    z-index:1000;
+    overflow-y:auto;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo h2{
+    color:#6c63ff;
+    font-size:30px;
+    font-weight:700;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    padding:8px 20px;
+}
+
+.sidebar ul li a{
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px;
+    border-radius:12px;
+    transition:0.3s;
+    font-size:16px;
+}
+
+.sidebar ul li a:hover{
+    background:#6c63ff;
+    transform:translateX(8px);
+}
+
+.active-link{
+    background:#6c63ff;
+}
+
+/* ===================================
+   CONTENT AREA
+=================================== */
+.content-area{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:30px;
+}
+
+/* ===================================
+   PAGE HEADERS
+=================================== */
+.page-title,
+.dashboard-header{
+    margin-bottom:30px;
+}
+
+.page-title h1,
+.dashboard-header h1{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.page-title p{
+    color:#cbd5e1;
+}
+
+/* ===================================
+   CARDS
+=================================== */
+.card-container{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+    transition:0.3s;
+    animation:fadeUp 1s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #6c63ff;
+}
+
+.card h2{
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.card p{
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* ===================================
+   PREDICTION FORM
+=================================== */
+.prediction-box{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    width:100%;
+    max-width:600px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    animation:fadeUp 1s ease;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    background:#334155;
+    color:#fff;
+}
+
+.input-group input::placeholder{
+    color:#cbd5e1;
+}
+
+.prediction-box button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#6c63ff;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.prediction-box button:hover{
+    background:#574bff;
+    transform:translateY(-3px);
+}
+
+/* ===================================
+   CHARTS
+=================================== */
+.chart-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.chart-card{
+    background:#1e293b;
+    width:100%;
+    max-width:600px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    animation:fadeUp 1s ease;
+}
+
+.chart-card h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+canvas{
+    width:100% !important;
+    height:350px !important;
+}
+
+/* ===================================
+   DOWNLOAD BUTTON
+=================================== */
+.download-btn{
+    margin-top:30px;
+    padding:15px 25px;
+    border:none;
+    background:#6c63ff;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#574bff;
+    transform:scale(1.05);
+}
+
+/* ===================================
+   SAVINGS PAGE
+=================================== */
+.savings-card{
+    background:linear-gradient(135deg,#059669,#10b981);
+}
+
+.cluster-card{
+    background:linear-gradient(135deg,#7c3aed,#8b5cf6);
+}
+
+/* ===================================
+   PROGRESS BAR
+=================================== */
+.progress-section{
+    margin-top:40px;
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+}
+
+.progress-box{
+    width:100%;
+    height:35px;
+    background:#334155;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,#22c55e,#4ade80);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:bold;
+    border-radius:30px;
+}
+
+/* ===================================
+   PROFILE
+=================================== */
+.profile-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.profile-card,
+.profile-form{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    flex:1;
+    min-width:300px;
+}
+
+.profile-image{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.profile-image img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:5px solid #6c63ff;
+    object-fit:cover;
+}
+
+.profile-card h2{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.profile-card p{
+    text-align:center;
+    color:#cbd5e1;
+}
+
+/* ===================================
+   TABLES
+=================================== */
+.table-container{
+    width:100%;
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#1e293b;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+table th,
+table td{
+    padding:15px;
+    text-align:center;
+}
+
+table th{
+    background:#6c63ff;
+}
+
+table tr:nth-child(even){
+    background:#243041;
+}
+
+.delete-btn{
+    background:#dc2626;
+    padding:10px 15px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+}
+
+/* ===================================
+   ERROR MESSAGE
+=================================== */
+.error-box{
+    background:#dc2626;
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    margin-top:20px;
+    text-align:center;
+    font-weight:bold;
+    animation:fadeIn 0.5s ease;
+}
+
+/* ===================================
+   MODERN SAVINGS PAGE
+=================================== */
+.modern-savings-page{
+    animation:fadeUp 1s ease;
+}
+
+.top-banner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.top-banner h1{
+    font-size:42px;
+}
+
+.top-banner p{
+    color:#cbd5e1;
+    margin-top:10px;
+}
+
+.live-status{
+    background:#111827;
+    padding:15px 25px;
+    border-radius:40px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.pulse{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#22c55e;
+    animation:pulse 1s infinite;
+}
+
+.savings-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.modern-card{
+    position:relative;
+    overflow:hidden;
+    background:#111827;
+    padding:40px;
+    border-radius:30px;
+    transition:0.4s;
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+.modern-card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.card-glow{
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-50px;
+    right:-50px;
+}
+
+.savings-card-modern{
+    background:linear-gradient(135deg,#059669,#10b981);
+}
+
+.cluster-card-modern{
+    background:linear-gradient(135deg,#7c3aed,#8b5cf6);
+}
+
+.card-icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.modern-card h1{
+    font-size:48px;
+    margin-top:15px;
+}
+
+.mini-tag{
+    margin-top:20px;
+    background:rgba(255,255,255,0.2);
+    padding:10px 20px;
+    border-radius:30px;
+    display:inline-block;
+}
+
+.interactive-section{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+    margin-top:40px;
+}
+
+.status-panel{
+    background:#111827;
+    padding:40px;
+    border-radius:30px;
+}
+
+.interactive-circle{
+    position:relative;
+    width:220px;
+    height:220px;
+    margin:40px auto;
+}
+
+.interactive-circle svg{
+    width:220px;
+    height:220px;
+    transform:rotate(-90deg);
+}
+
+.interactive-circle circle{
+    fill:none;
+    stroke-width:12;
+    stroke:#1e293b;
+}
+
+.interactive-circle #progressCircle{
+    stroke:#22c55e;
+    stroke-linecap:round;
+    transition:0.4s;
+}
+
+.circle-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
+
+.circle-text h1{
+    font-size:42px;
+}
+
+.status-right{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.glass-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:25px;
+}
+
+.status-badge{
+    margin-top:20px;
+    padding:15px;
+    border-radius:20px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.low-saver{
+    background:#dc2626;
+}
+
+.medium-saver{
+    background:#f59e0b;
+}
+
+.high-saver{
+    background:#16a34a;
+}
+
+.progress-wrapper{
+    width:100%;
+    height:20px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.progress-line{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#22c55e,#4ade80);
+    transition:2s ease;
+}
+
+.floating-boxes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.float-card{
+    background:#111827;
+    padding:35px;
+    border-radius:25px;
+    transition:0.4s;
+    text-align:center;
+}
+
+.float-card:hover{
+    transform:translateY(-8px);
+    background:#1e293b;
+}
+
+.float-card h1{
+    margin-top:15px;
+    font-size:42px;
+}
+
+/* ===================================
+   ANIMATIONS
+=================================== */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes slideIn{
+    from{
+        transform:translateX(-100%);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.5);
+        opacity:0.5;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
+@media(max-width:900px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .content-area{
+        margin-left:220px;
+        width:calc(100% - 220px);
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .interactive-section{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .main-container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .content-area{
+        margin-left:0;
+        width:100%;
+    }
+
+    .auth-card{
+        width:100%;
+    }
+
+    .chart-card{
+        max-width:100%;
+    }
+
+    .top-banner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .top-banner h1{
+        font-size:32px;
+    }
+
+    .modern-card h1{
+        font-size:36px;
+    }
+
+    .circle-text h1{
+        font-size:32px;
+    }
+}

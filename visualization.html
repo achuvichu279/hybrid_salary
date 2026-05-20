@@ -1,0 +1,305 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="page-title">
+    <h1>Advanced Visualization Dashboard</h1>
+</div>
+
+<div class="chart-container">
+
+    <!-- PIE CHART -->
+
+    <div class="chart-card">
+        <h2>Expense Distribution</h2>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <!-- BAR CHART -->
+
+    <div class="chart-card">
+        <h2>Savings Analysis</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- LINE CHART -->
+
+    <div class="chart-card">
+        <h2>Expense Trend</h2>
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <!-- DOUGHNUT CHART -->
+
+    <div class="chart-card">
+        <h2>Expense Comparison</h2>
+        <canvas id="doughnutChart"></canvas>
+    </div>
+
+</div>
+
+<!-- DOWNLOAD BUTTON -->
+
+<div style="margin-top:30px;">
+
+    <a href="/download_report">
+
+        <button class="download-btn">
+            📄 Download PDF Report
+        </button>
+
+    </a>
+
+</div>
+
+<!-- CHART JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    // =========================
+    // EXPENSE DATA
+    // =========================
+
+    const expenseData = [
+
+        {{ house_rent | default(0) }},
+        {{ electricity_bill | default(0) }},
+        {{ grocery_bill | default(0) }},
+        {{ transport_bill | default(0) }},
+        {{ medical_bill | default(0) }},
+        {{ entertainment_bill | default(0) }},
+        {{ other_expense | default(0) }}
+
+    ];
+
+    // =========================
+    // LABELS
+    // =========================
+
+    const labels = [
+
+        'House Rent',
+        'Electricity',
+        'Grocery',
+        'Transport',
+        'Medical',
+        'Entertainment',
+        'Other'
+
+    ];
+
+    // =========================
+    // COLORS
+    // =========================
+
+    const colors = [
+
+        '#6366f1',
+        '#22c55e',
+        '#f59e0b',
+        '#ef4444',
+        '#06b6d4',
+        '#8b5cf6',
+        '#14b8a6'
+
+    ];
+
+    // =========================
+    // PIE CHART
+    // =========================
+
+    new Chart(document.getElementById('pieChart'), {
+
+        type: 'pie',
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+                data: expenseData,
+                backgroundColor: colors
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            }
+
+        }
+
+    });
+
+    // =========================
+    // BAR CHART
+    // =========================
+
+    new Chart(document.getElementById('barChart'), {
+
+        type: 'bar',
+
+        data: {
+
+            labels: ['Savings'],
+
+            datasets: [{
+
+                label: 'Savings Amount',
+
+                data: [{{ savings | default(0) }}],
+
+                backgroundColor: '#22c55e'
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                }
+
+            },
+
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            }
+
+        }
+
+    });
+
+    // =========================
+    // LINE CHART
+    // =========================
+
+    new Chart(document.getElementById('lineChart'), {
+
+        type: 'line',
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+
+                label: 'Expense Trend',
+
+                data: expenseData,
+
+                borderColor: '#6366f1',
+
+                backgroundColor: 'rgba(99,102,241,0.2)',
+
+                fill: true,
+
+                tension: 0.4
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                }
+
+            },
+
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            }
+
+        }
+
+    });
+
+    // =========================
+    // DOUGHNUT CHART
+    // =========================
+
+    new Chart(document.getElementById('doughnutChart'), {
+
+        type: 'doughnut',
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+
+                data: expenseData,
+
+                backgroundColor: colors
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    labels: {
+                        color: 'white'
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
+{% endblock %}

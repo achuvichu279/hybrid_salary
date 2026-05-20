@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <h1>Expense Dashboard</h1>
+
+</div>
+
+<div class="card-container">
+
+    <div class="card">
+        <h2>Total Expense</h2>
+        <p>₹ {{ prediction }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Total Savings</h2>
+        <p>₹ {{ savings }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Savings Group</h2>
+        <p>{{ group }}</p>
+    </div>
+
+</div>
+
+<!-- EXPENSE BREAKDOWN -->
+
+<div class="dashboard-header" style="margin-top:40px;">
+
+    <h1>Expense Breakdown</h1>
+
+</div>
+
+<div class="card-container">
+
+    <div class="card">
+        <h2>🏠 House Rent</h2>
+        <p>₹ {{ house_rent }}</p>
+    </div>
+
+    <div class="card">
+        <h2>💡 Electricity</h2>
+        <p>₹ {{ electricity_bill }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🛒 Grocery</h2>
+        <p>₹ {{ grocery_bill }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🚌 Transport</h2>
+        <p>₹ {{ transport_bill }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🏥 Medical</h2>
+        <p>₹ {{ medical_bill }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🎬 Entertainment</h2>
+        <p>₹ {{ entertainment_bill }}</p>
+    </div>
+
+    <div class="card">
+        <h2>📦 Other Expense</h2>
+        <p>₹ {{ other_expense }}</p>
+    </div>
+
+</div>
+
+{% endblock %}

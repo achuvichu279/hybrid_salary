@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="page-title">
+
+    <h1>User Profile</h1>
+
+</div>
+
+<div class="profile-container">
+
+    <!-- PROFILE CARD -->
+
+    <div class="profile-card">
+
+        <div class="profile-image">
+
+            <img src="{{ url_for('static', filename='images/user.png') }}">
+
+        </div>
+
+        <h2>{{ name }}</h2>
+
+        <p>{{ email }}</p>
+
+    </div>
+
+    <!-- UPDATE PROFILE -->
+
+    <div class="profile-form">
+
+        <h2>Update Profile</h2>
+
+        <form action="/update_profile" method="POST">
+
+            <div class="input-group">
+
+                <label>Name</label>
+
+                <input type="text" name="name" value="{{ name }}" required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input type="email" name="email" value="{{ email }}" required>
+
+            </div>
+
+            <button type="submit">
+
+                Update Profile
+
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h2>Change Password</h2>
+
+        <form action="/change_password" method="POST">
+
+            <div class="input-group">
+
+                <label>New Password</label>
+
+                <input type="password"
+                       name="new_password"
+                       required>
+
+            </div>
+
+            <button type="submit">
+
+                Change Password
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

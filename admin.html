@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="page-title">
+
+    <h1>Admin Dashboard</h1>
+
+</div>
+
+<!-- REPORT CARDS -->
+
+<div class="card-container">
+
+    <div class="card">
+
+        <h2>Total Expense</h2>
+
+        <p>₹ {{ prediction }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Total Savings</h2>
+
+        <p>₹ {{ savings }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Savings Group</h2>
+
+        <p>{{ group }}</p>
+
+    </div>
+
+</div>
+
+<!-- USERS TABLE -->
+
+<div class="table-container">
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+
+        </tr>
+
+        {% for user in users %}
+
+        <tr>
+
+            <td>{{ user[0] }}</td>
+
+            <td>{{ user[1] }}</td>
+
+            <td>{{ user[2] }}</td>
+
+            <td>
+
+                <a href="/delete_user/{{ user[0] }}"
+                   class="delete-btn">
+
+                    Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

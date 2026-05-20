@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Hybrid ML Prediction & Savings
+    </title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- GOOGLE FONT -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- ===================================
+         SIDEBAR
+    ==================================== -->
+
+    <div class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Hybrid ML</h2>
+
+        </div>
+
+        <!-- MENU -->
+
+        <ul>
+
+            <li>
+
+                <a href="/dashboard">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/prediction">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Prediction
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/savings">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Savings Cluster
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/visualization">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Visualization
+
+                </a>
+
+            </li>
+
+            <!-- PROFILE -->
+
+            <li>
+
+                <a href="/profile">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Profile
+
+                </a>
+
+            </li>
+
+            <!-- ADMIN -->
+
+            <li>
+
+                <a href="/admin">
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                    Admin Dashboard
+
+                </a>
+
+            </li>
+
+            <!-- LOGOUT -->
+
+            <li>
+
+                <a href="/logout">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- ===================================
+         MAIN CONTENT
+    ==================================== -->
+
+    <div class="content-area">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
